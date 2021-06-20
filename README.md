@@ -2,16 +2,17 @@
 
 A "clientless" implementation of [HTTPie][1] embedded in Go.
 
+Pier converts any implementation of [http.Handler][2] to a CLI tool with the
+convenient argument syntax and features of HTTPie.
+
 ## Motivation
 
 Go's compile and execute cycle is fast enough that you can practice
 "REPL-driven development" using Bash. However, this practice requires authoring
 custom CLI tools, which can be tedious. Furthermore, if you're developing an
 HTTP service, the work of building a CLI tool feels redundant with all the
-work you're doing to build a nice HTTP API.
-
-Pier converts any implementation of [http.Handler][2] to a CLI tool with
-the convenient argument syntax and features of [HTTPie][1].
+work you're doing to build a nice HTTP API. With Pier, no server or
+file-watcher is required during iteration.
 
 ## Usage
 
