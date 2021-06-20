@@ -26,17 +26,20 @@ func main() {
 }
 ```
 
-Then invoke with HTTPie syntax.
+Then simply invoke with HTTPie syntax.
+
+There is an example app in this repository. Try this:
 
 ```bash
-go run example /echo message=hello
+go run ./example /echo message=hello
 ```
 
-See [https://httpie.io/docs](https://httpie.io/docs) for arguments syntax.
+See [https://httpie.io/docs](https://httpie.io/docs) for more detailed documentation.
 
 ## Status
 
-Alpha! Only a small part of HTTPie's usage is supported.
+Beta. Pier is implemented in terms of [a fork][3] of [nojima/httppie-go][4] and
+inherits its behavior completely. See the httpie-go readme for details.
 
 ## Trivia
 
@@ -48,7 +51,5 @@ better and "Pier" seemed to be mostly disused on Github, so here we are.
 
 [1]: https://httpie.io/
 [2]: https://golang.org/pkg/net/http/#Handler
-
-```
-
-```
+[3]: https://github.com/deref/httpie-go/tree/pier
+[4]: https://github.com/nojima/httpie-go
