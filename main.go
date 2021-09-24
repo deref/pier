@@ -1,10 +1,12 @@
 package pier
 
 import (
+	"bufio"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"os"
+	"strings"
 
 	"github.com/nojima/httpie-go"
 )
@@ -18,6 +20,27 @@ func Main(handler http.Handler) {
 	if err := httpie.MainWithOptions(options); err != nil {
 		fmt.Fprintf(os.Stderr, "ERROR: %v\n", err)
 		os.Exit(1)
+	}
+}
+
+func Interactive(handler http.Handler) {
+	scanner := bufio.NewScanner(os.Stdin)
+	fmt.Printf("> ")
+	for scanner.Scan() {
+		if scanner.Text() == "" {
+			continue
+		}
+		args := strings.Split(scanner.Text(), " ")
+		os.Args = append([]string{os.Args[0]}, args...)
+		options := &httpie.Options{
+			Transport: &Transport{
+				Handler: handler,
+			},
+		}
+		if err := httpie.MainWithOptions(options); err != nil {
+			fmt.Fprintf(os.Stderr, "ERROR: %v\n", err)
+		}
+		fmt.Printf("> ")
 	}
 }
 
