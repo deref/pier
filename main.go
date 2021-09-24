@@ -15,7 +15,7 @@ func Main(handler http.Handler) {
 			Handler: handler,
 		},
 	}
-	if err := httpie.MainWithOptions(options); err != nil {
+	if err := httpie.Main(options); err != nil {
 		fmt.Fprintf(os.Stderr, "ERROR: %v\n", err)
 		os.Exit(1)
 	}
