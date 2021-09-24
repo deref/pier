@@ -16,6 +16,16 @@ file-watcher is required during iteration.
 
 ## Usage
 
+### Install
+
+```bash
+go get github.com/nojima/httpie-go
+# Use forked version until httpie-go PR #70 lands.
+go mod edit '-replace=github.com/nojima/httpie-go=github.com/deref/httpie-go@v0.7.1-0.20210924013123-066db544cf77' 
+```
+
+### Code
+
 ```go
 import (
   "github.com/deref/pier"
@@ -39,7 +49,9 @@ See [https://httpie.io/docs](https://httpie.io/docs) for more detailed documenta
 
 ## Status
 
-Beta. Pier is implemented in terms of [a fork][3] of [nojima/httppie-go][4] and
+Stable enough for development use (which is the intended use anyway!)
+
+Pier is implemented in terms of [a fork][3] of [nojima/httppie-go][4] and
 inherits its behavior completely. See the httpie-go readme for details.
 
 ## Trivia
@@ -52,5 +64,5 @@ better and "Pier" seemed to be mostly disused on Github, so here we are.
 
 [1]: https://httpie.io/
 [2]: https://golang.org/pkg/net/http/#Handler
-[3]: https://github.com/deref/httpie-go/tree/pier
+[3]: https://github.com/deref/httpie-go
 [4]: https://github.com/nojima/httpie-go
