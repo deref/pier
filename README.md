@@ -51,7 +51,7 @@ See [https://httpie.io/docs](https://httpie.io/docs) for more detailed documenta
 
 Stable enough for development use (which is the intended use anyway!)
 
-Pier is implemented in terms of [a fork][3] of [nojima/httppie-go][4] and
+Pier is implemented in terms of [nojima/httppie-go][3] and
 inherits its behavior completely. See the httpie-go readme for details.
 
 ## Trivia
@@ -64,5 +64,4 @@ better and "Pier" seemed to be mostly disused on Github, so here we are.
 
 [1]: https://httpie.io/
 [2]: https://golang.org/pkg/net/http/#Handler
-[3]: https://github.com/deref/httpie-go
-[4]: https://github.com/nojima/httpie-go
+[3]: https://github.com/nojima/httpie-go
