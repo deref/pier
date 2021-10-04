@@ -19,9 +19,7 @@ file-watcher is required during iteration.
 ### Install
 
 ```bash
-go get github.com/nojima/httpie-go
-# Use forked version until httpie-go PR #70 lands.
-go mod edit '-replace=github.com/nojima/httpie-go=github.com/deref/httpie-go@v0.7.1-0.20210924013123-066db544cf77' 
+go get github.com/deref/pier
 ```
 
 ### Code
