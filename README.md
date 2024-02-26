@@ -43,7 +43,22 @@ There is an example app in this repository. Try this:
 go run ./example /echo message=hello
 ```
 
-See [https://httpie.io/docs](https://httpie.io/docs) for more detailed documentation.
+See [https://httpie.io/docs](https://httpie.io/docs) for more detailed documentation on command line usage.
+
+### Customization
+
+Right now, the only interesting option is BaseContext, which works similar to
+that of Go's http.Server. Specify options by constructing a Peer:
+
+```go
+peer := &pier.Peer{
+  Handler: app.Handler,
+  BaseContext: func(*http.Request) context.Context {
+    return context.Background()
+  },
+}
+peer.Main()
+```
 
 ## Status
 
