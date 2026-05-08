@@ -47,8 +47,8 @@ See [https://httpie.io/docs](https://httpie.io/docs) for more detailed documenta
 
 ### Customization
 
-Right now, the only interesting option is BaseContext, which works similar to
-that of Go's http.Server. Specify options by constructing a Peer:
+Specify options by constructing a Peer. BaseContext works similar to that of
+Go's http.Server:
 
 ```go
 peer := &pier.Peer{
@@ -60,11 +60,24 @@ peer := &pier.Peer{
 peer.Main()
 ```
 
+For tests and embedded usage, Peer can also run with explicit arguments and
+custom streams:
+
+```go
+var stdout bytes.Buffer
+peer := &pier.Peer{
+  Handler: app.Handler,
+  Stdin: strings.NewReader(`{"message":"hello"}`),
+  Stdout: &stdout,
+}
+err := peer.Run([]string{"pier", "POST", "/echo"})
+```
+
 ## Status
 
 Stable enough for development use (which is the intended use anyway!)
 
-Pier is implemented in terms of [nojima/httppie-go][3] and
+Pier is implemented in terms of [brandonbloom/httpie-go][3] and
 inherits its behavior completely. See the httpie-go readme for details.
 
 ## Trivia
@@ -77,4 +90,4 @@ better and "Pier" seemed to be mostly disused on Github, so here we are.
 
 [1]: https://httpie.io/
 [2]: https://golang.org/pkg/net/http/#Handler
-[3]: https://github.com/nojima/httpie-go
+[3]: https://github.com/brandonbloom/httpie-go
